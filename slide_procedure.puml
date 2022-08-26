@@ -1,0 +1,10 @@
+@startuml slide_procedure
+
+!procedure $request($source, $destination)
+$source --> $destination: yeah
+!endprocedure
+
+Alice -> Bob : Hi
+%invoke_procedure("$request", Alice, Bob)
+
+@enduml

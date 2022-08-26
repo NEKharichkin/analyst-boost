@@ -1,0 +1,54 @@
+'
+' Scenario for business-feature "upload file and check via AntiVirus"
+'
+@startuml upload_file
+!include https://raw.githubusercontent.com/NEKharichkin/analyst-boost/main/procedures_library.puml
+
+' Function acts as a global parameter of root URL address with icons
+!function $ICONURL()
+!return "<img:https://raw.githubusercontent.com/Roemer/plantuml-office/master/office2014/"
+!endfunction
+
+' Another way to define exact URL to the mobile icon + set participant name
+!function $mobile_icon($alias)
+!return $ICONURL() + "/Devices/cell_phone_generic.png>\n" + $alias
+!endfunction
+
+box Net segment Public #Honeydew
+    actor User as user order 10
+    participant "$mobile_icon(Mobile)" as client order 20
+end box
+box Net segment A #LightYellow
+    participant "$ICONURL()/Servers/server_generic.png>\n Server" as server order 30
+end box
+box Net segment B #LightCyan
+    participant "$ICONURL()/Servers/file_server.png>\n File Server" as fs order 40
+    participant "$ICONURL()/Security/federation_trust.png>\n Antivirus" as av order 50
+    participant "$ICONURL()/Servers/sql_server.png>\n Data Base" as db order 60
+end box
+
+title
+    Upload file and
+    check via AntiVirus
+end title
+hide footbox
+
+ref over user: User has chosen file to upload
+
+'Define variable value for $proxy procedure
+!$msg = "file"
+
+'Invoke $proxy procedure, which proxies requests with defined variable through
+'participants in the defined order. Aliases must match ones defined before
+%invoke_procedure("$proxy", req($msg), "user, client, server, fs, av, fs")
+
+av -> av: Check $msg
+note right #Honeydew: takes up\nto 30s
+av -> fs: $msg approved
+fs -> db: Save $msg
+
+'Redefine variable and invoke $proxy_response procedure
+!$msg = $msg + " link"  
+%invoke_procedure("$proxy_response", resp($msg), "db, fs, server, client, user")
+
+@enduml

@@ -1,0 +1,62 @@
+@startuml slide_salt_1
+salt
+{
+    Just plain text
+    [This is my button]
+    () Unchecked radio
+    (X) Checked radio
+    [] Unchecked box
+    [X] Checked box
+    "Enter text here "
+    ^This is a droplist^
+
+{+
+    Text1
+    ..
+    "Some field"
+    ==
+    Note on usage
+    ~~
+    Another text
+    --
+    [Ok]
+}
+
+{^"My group box"
+    {+
+        {* File | Edit | Source | Refactor
+            Refactor | New | Open File | - | Close | Close All }
+        {/ <b>General | Fullscreen | Behavior | Saving }
+        {
+            { Open image in: | ^Smart Mode^ }
+            [X] Smooth images when zoomed
+            [X] Confirm image deletion
+            [ ] Show hidden images
+        }
+        [Close]
+        }
+    Login<&person> | "MyName "
+    Password<&key> | "**** "
+    [Cancel <&circle-x>] | [OK <&account-login>]
+}
+
+{
+    {T
+    +Region | Population | Age
+    + World | 7.13 billion | 30
+    ++ America | 964 million | 30
+    +++ Canada | 35 million | 30
+    +++ USA | 319 million | 30
+    ++++ NYC | 8 million | 30
+    ++++ Boston | 617 thousand | 30
+    +++ Mexico | 117 million | 30
+    ++ Europe | 601 million | 30
+    +++ Italy | 61 million | 30
+    +++ Germany | 82 million | 30
+    ++++ Berlin | 3 million | 30
+    ++ Africa | 1 billion | 30
+    }
+}
+
+}
+@enduml

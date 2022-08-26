@@ -1,0 +1,34 @@
+@startuml aggregate
+
+' == STYLE ==
+' Import colour name from here:
+' https://en.wikipedia.org/wiki/Web_colors#Extended_colors
+'   e.g. "#lightGreen". Named colour helps to interpret
+'   and understand the connection between uml code and the picture while editing
+' Open style " .puml" file as "raw", then copy link and
+' insert it under "!includeURL".
+'   Make sure to iclude only 1 style, otherwise it may lead to style mix 
+'   Example of 3rd party style lib import below:
+'!includeurl https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/cerulean/puml-theme-cerulean.puml
+
+' For styles stored in one repo bt in multiple folders
+' you may use define to shorten links for readability. See example below
+'!define ICONURL https://raw.githubusercontent.com/Roemer/plantuml-office/master/office2014
+
+' == Analyst Boost style ==
+!includeurl https://raw.githubusercontent.com/NEKharichkin/analyst-boost/main/style_plantuml_file.puml
+
+' == PROCEDURES LIBRARY ==
+!includeurl https://raw.githubusercontent.com/NEKharichkin/analyst-boost/main/procedures_library.puml
+
+' == scenario 3rd party example ==
+'!includeurl https://raw.githubusercontent.com/bschwarz/puml-themes/master/examples/sequence-ex.puml
+
+== scenario "check file" analyst-boost scenarios ==
+!includeurl https://raw.githubusercontent.com/NEKharichkin/analyst-boost/main/feature_scenario.puml
+
+' If you want to override all the titles from the included,
+' you must define it after inclusion
+title Aggregated doc
+
+@enduml
