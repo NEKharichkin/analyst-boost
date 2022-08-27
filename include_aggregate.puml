@@ -1,4 +1,4 @@
-@startuml
+@startuml include_aggreagate
 
 a->b: Text before inclusion
 '!include file_link

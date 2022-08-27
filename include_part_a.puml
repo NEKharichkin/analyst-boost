@@ -1,4 +1,4 @@
-@startuml
+@startuml include_part_a
 
 == included part starts ==
 a->b: Hey, we're in another file!
