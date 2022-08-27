@@ -1,0 +1,8 @@
+@startuml
+
+== included part starts ==
+a->b: Hey, we're in another file!
+a<--b: Wow, cool
+== included part ends ==
+
+@enduml
