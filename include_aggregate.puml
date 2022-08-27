@@ -1,0 +1,7 @@
+@startuml
+
+a->b: Text before inclusion
+'!include file_link
+a<--b: Text after inclusion 
+
+@enduml
