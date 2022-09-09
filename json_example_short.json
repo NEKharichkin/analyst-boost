@@ -1,8 +1,11 @@
 {
-    "id": "file",
-    "value": [1,2,3],
-    "popup": {
-        "button": "A",
-        "name": "Go"
+    "id": 0,
+    "val": [
+      "a",
+      2
+    ],
+    "menu": {
+      "id": 1,
+      "desc": "Go"
     }
 }
