@@ -1,8 +1,7 @@
 @startuml include_part_a
-skinparam MaxMessageSize 50
+skinparam MaxMessageSize 100
 == included part starts ==
 a-[#red]>b: Hey, we're in another file!
 a<-[#red]-b: Wow, cool
 == included part ends ==
-
 @enduml

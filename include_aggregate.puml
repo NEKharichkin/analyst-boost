@@ -4,34 +4,31 @@
 !return "https://raw.githubusercontent.com/NEKharichkin/analyst-boost/main/" + $filename
 !endfunction
 
-!function $json($filelink)
-!return "https://raw.githubusercontent.com/NEKharichkin/analyst-boost/main/" + $filename
-!endfunction
-
 autonumber
 
+==== Let's use simple "!include" ==
 a-[#green]>b: Text before inclusion
 !include https://raw.githubusercontent.com/NEKharichkin/analyst-boost/main/include_part_a.puml
 
-==== Let's use our Function ==
+==== Let's use "!include" inside our Function ==
 !include $BASEURL(include_part_a.puml)
 
 ==== Let's use %loadJson ==
 !$link = $BASEURL(json_example_short.json)
 !$my_json = %loadJSON($link)
-a->b: Send\nmessage
+
+a-[#blue]>b: Send message with json as a note
 note left
 <code>
 $my_json
 </code>
 end note
 note right
-{{json
-    $my_json
-}}
+    {{json
+        $my_json
+    }}
 end note
 
-a<-[#green]-b: Text after inclusion 
-
+a<-[#green]-b: Text after inclusion
 
 @enduml
