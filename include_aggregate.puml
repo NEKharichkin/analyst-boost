@@ -1,4 +1,5 @@
 @startuml include_aggreagate
+skinparam MaxMessageSize 50
 
 !function $BASEURL($filename)
 !return "https://raw.githubusercontent.com/NEKharichkin/analyst-boost/main/" + $filename
@@ -6,18 +7,19 @@
 
 autonumber
 
-==== Let's use simple "!include" ==
-a-[#green]>b: Text before inclusion
+A-[#green]>B: Text before inclusion
+A<-[#green]-B: Max Message Size = 50
+==== <color #green>Simple //!include//</color> ==
 !include https://raw.githubusercontent.com/NEKharichkin/analyst-boost/main/include_part_a.puml
 
-==== Let's use "!include" inside our Function ==
+==== <color #green>//!include// inside Function</color> ==
 !include $BASEURL(include_part_a.puml)
 
-==== Let's use %loadJson ==
+==== <color #green>Procedure //%loadJson//</color> ==
 !$link = $BASEURL(json_example_short.json)
 !$my_json = %loadJSON($link)
 
-a-[#blue]>b: Send message with json as a note
+A-[#green]>B: Text after inclusion. Send message with json as a note
 note left
 <code>
 $my_json
@@ -28,7 +30,5 @@ note right
         $my_json
     }}
 end note
-
-a<-[#green]-b: Text after inclusion
 
 @enduml

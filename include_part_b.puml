@@ -1,0 +1,7 @@
+@startuml include_part_a
+skinparam MaxMessageSize 100
+== <color #red>Included part starts </color>==
+A-[#red]>B: <color #red>We're from file **B!**</color>
+A<-[#red]-B: <color #red>Max Message Size = 100</color>
+== <color #red>Included part ends </color>==
+@enduml
