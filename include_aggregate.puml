@@ -1,34 +1,32 @@
 @startuml include_aggreagate
-skinparam MaxMessageSize 50
+skinparam MaxMessageSize 300
+autonumber
 
 !function $BASEURL($filename)
 !return "https://raw.githubusercontent.com/NEKharichkin/analyst-boost/main/" + $filename
 !endfunction
 
-autonumber
-
 A-[#green]>B: Text before inclusion
-A<-[#green]-B: Max Message Size = 50
+A<-[#green]-B: Max Message Size = 300
 ==== <color #green>Simple //!include//</color> ==
 !include https://raw.githubusercontent.com/NEKharichkin/analyst-boost/main/include_part_a.puml
 
 ==== <color #green>//!include// inside Function</color> ==
-!include $BASEURL(include_part_a.puml)
+!include $BASEURL(include_part_b.puml)
 
 ==== <color #green>Procedure //%loadJson//</color> ==
 !$link = $BASEURL(json_example_short.json)
 !$my_json = %loadJSON($link)
 
 A-[#green]>B: Text after inclusion. Send message with json as a note
-note left
-<code>
-$my_json
-</code>
-end note
-note right
+hnote across #white
     {{json
         $my_json
     }}
+
+<code>
+$my_json
+</code>
 end note
 
 @enduml
