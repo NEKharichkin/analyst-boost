@@ -1,0 +1,11 @@
+@startuml original
+autonumber
+
+a -> b: Hello
+b --> a: Hi
+b --> a: This request will be deleted
+a -> b: This message will be changed
+a -> b: This message will be extended
+a -> b: This message will be shortened
+
+@enduml
